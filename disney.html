@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disney</title>
+</head>
+<style>
+    body {
+        overflow-x: hidden;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    section {
+        width: 1500px;
+        height: 1000px;
+    }
+    
+    .lio {
+        background-image: url("background0.png");
+        background-size: cover;
+        background-position: center;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        flex-direction: column;
+    }
+    
+    .img_butoane {
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        align-items: center;
+    }
+    
+    .partea_stanga,
+    .partea_dreapta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .partea_stanga .logouri,
+    .partea_dreapta .logouri {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .partea_stanga img,
+    .partea_dreapta img {
+        width: 250px;
+        height: auto;
+    }
+    
+    .img_butoane button {
+        background-color: #0070f3;
+        color: white;
+        border: none;
+        padding: 22px 75px;
+        font-size: 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .img_butoane button:hover {
+        background-color: #6e96c5;
+    }
+    
+    #log_in {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #141414;
+        color: white;
+        border: none;
+        font-size: 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 10px 20px;
+    }
+    
+    .text_sectiune {
+        text-align: center;
+        gap: 30px;
+        margin-top: 40px;
+        top: 30px;
+        font-size: 17px;
+        color: #c0c0c0;
+    }
+    
+    .text_sectiune img {
+        width: 80%;
+        height: auto;
+        margin-top: 20px;
+    }
+    
+    .sec_doi {
+        background-color: #141414;
+    }
+    
+    .difuz,
+    .difuz * {
+        box-sizing: border-box;
+    }
+    
+    .difuz {
+        height: 720px;
+        position: relative;
+    }
+    
+    .desene_ {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: max-content;
+        margin: 65px auto 0 auto;
+    }
+    
+    .desene_ img:hover {
+        transform: scale(1.07);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 150, 255, 0.4);
+        z-index: 2;
+    }
+    
+    .desene:hover {
+        transform: perspective(800px) rotateX(3deg) scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+    }
+    
+    .desene:hover img {
+        transform: scale(1.08);
+        filter: brightness(1.1) contrast(1.05);
+    }
+    
+    .meniuri {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        font-family: "Avenir-Book", sans-serif;
+        color: white;
+        margin-top: -170px;
+        font-size: 25px;
+    }
+    
+    .sec_doi {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+    }
+    
+    .meniuri {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        font-family: "Avenir-Book", sans-serif;
+        color: white;
+        font-size: 25px;
+    }
+    
+    .meniuri {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .meniuri::after {
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 4px;
+        background-color: white;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+    
+    .meniuri:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .meniuri.active::after {
+        transform: scaleX(1);
+    }
+    
+    .planuri,
+    .planuri * {
+        box-sizing: border-box;
+    }
+    
+    .planuri {
+        height: 947.42px;
+        position: relative;
+        margin-top: 0px;
+    }
+    
+    .effective-at-the-end-of-the-billing-period-terms-apply {
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 756.8px;
+        width: 233.81px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .effective-at-the-end-of-the-billing-period-terms-apply-span {
+        color: #c0c0c0;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+    }
+    
+    .effective-at-the-end-of-the-billing-period-terms-apply-span2 {
+        color: #f9f9f9;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+    }
+    
+    .effective-at-the-end-of-the-billing-period-terms-apply-span3 {
+        color: #c0c0c0;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+    }
+    
+    .planuri_box {
+        width: 1278.75px;
+        height: 523px;
+        position: absolute;
+        left: 80.62px;
+        top: 218.8px;
+    }
+    
+    .trio-premium {
+        border-style: solid;
+        border-color: #c0c0c0;
+        border-width: 1px;
+        width: 380px;
+        height: 523px;
+        position: absolute;
+        left: calc(50% - -214px);
+        top: 0px;
+    }
+    
+    .button {
+        width: 290px;
+        height: 130px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 352px;
+    }
+    
+    .button2 {
+        background: #0063e5;
+        border-radius: 4px;
+        height: 60px;
+        position: absolute;
+        right: 0px;
+        left: 0px;
+        top: calc(50% - -5px);
+    }
+    
+    .select {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Medium", sans-serif;
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 18.5px;
+        width: 69.97px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ._19-99-month {
+        text-align: left;
+        position: absolute;
+        left: 0px;
+        top: 16px;
+        width: 147.62px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    ._19-99-month-span {
+        color: #f9f9f9;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 28px;
+        line-height: 38px;
+        font-weight: 900;
+    }
+    
+    ._19-99-month-span2 {
+        color: #c0c0c0;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 38px;
+        font-weight: 400;
+    }
+    
+    .details {
+        width: 290px;
+        height: 299px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 41px;
+    }
+    
+    .features {
+        width: 291px;
+        height: 180px;
+        position: absolute;
+        left: -0.5px;
+        top: 143.61px;
+    }
+    
+    .feature {
+        padding: 0px 37px 34px 26px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        left: 0.5px;
+        top: 119.39px;
+    }
+    
+    .icon {
+        flex-shrink: 0;
+        width: 15px;
+        height: 12.5px;
+        position: absolute;
+        left: 1.5px;
+        top: 5.25px;
+        overflow: visible;
+    }
+    
+    .downloads-to-watch-on-the-go {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .feature2 {
+        padding: 0px 54.74px 36px 26px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        left: 0.5px;
+        top: 61.39px;
+    }
+    
+    .icon2 {
+        flex-shrink: 0;
+        width: 15px;
+        height: 12.5px;
+        position: absolute;
+        left: 1.5px;
+        top: 3.25px;
+        overflow: visible;
+    }
+    
+    .live-sports-and-originals-on-espn-with-ads {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+        width: 209.26px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .feature3 {
+        padding: 0px 14.63px 36px 26px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        left: 0.5px;
+        top: 1.39px;
+    }
+    
+    .icon3 {
+        flex-shrink: 0;
+        width: 15px;
+        height: 12.5px;
+        position: absolute;
+        left: 1.5px;
+        top: 3.25px;
+        overflow: visible;
+    }
+    
+    .thousands-of-shows-movies-and-originals-on-disney-and-hulu {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+        width: 249.37px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .trio-premium-no-ads-on-disney-hulu {
+        color: #f9f9f9;
+        text-align: left;
+        position: absolute;
+        left: 0px;
+        top: 67px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .trio-premium-no-ads-on-disney-hulu-span {
+        color: #f9f9f9;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 27px;
+        line-height: 38px;
+        font-weight: 900;
+    }
+    
+    .trio-premium-no-ads-on-disney-hulu-span2 {
+        color: #f9f9f9;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+    
+    .logos {
+        width: 172.5px;
+        height: 40px;
+        position: absolute;
+        left: calc(50% - 145px);
+        top: calc(50% - 149.5px);
+        overflow: visible;
+    }
+    
+    .trio-basic {
+        border-style: solid;
+        border-color: #c0c0c0;
+        border-width: 1px;
+        width: 380px;
+        height: 523px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 0px;
+    }
+    
+    ._12-99-month {
+        text-align: left;
+        position: absolute;
+        left: 0px;
+        top: 16px;
+        width: 147.62px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    ._12-99-month-span {
+        color: #f9f9f9;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 28px;
+        line-height: 38px;
+        font-weight: 900;
+    }
+    
+    ._12-99-month-span2 {
+        color: #c0c0c0;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 38px;
+        font-weight: 400;
+    }
+    
+    .details2 {
+        width: 290px;
+        height: 269px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 41px;
+    }
+    
+    .features2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        left: 0px;
+        top: 145px;
+    }
+    
+    .feature4 {
+        padding: 0px 14.63px 36px 26px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-shrink: 0;
+        position: relative;
+    }
+    
+    .icon4 {
+        flex-shrink: 0;
+        width: 15px;
+        height: 12.5px;
+        position: absolute;
+        left: 1.5px;
+        top: 3.25px;
+        overflow: visible;
+    }
+    
+    .feature5 {
+        margin: -28px 0 0 0;
+        padding: 0px 54.74px 36px 26px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-shrink: 0;
+        position: relative;
+    }
+    
+    .live-sports-and-originals-on-espn {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+        width: 209.26px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .icon5 {
+        flex-shrink: 0;
+        width: 15px;
+        height: 12.5px;
+        position: absolute;
+        left: 1.5px;
+        top: 3.25px;
+        overflow: visible;
+    }
+    
+    .trio-basic-with-ads {
+        color: #f9f9f9;
+        text-align: left;
+        position: absolute;
+        left: 0px;
+        top: 67px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .trio-basic-with-ads-span {
+        color: #f9f9f9;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 27px;
+        line-height: 38px;
+        font-weight: 900;
+    }
+    
+    .trio-basic-with-ads-span2 {
+        color: #f9f9f9;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+    
+    .logos2 {
+        width: 172.5px;
+        height: 40px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        overflow: visible;
+    }
+    
+    .duo-basic {
+        border-style: solid;
+        border-color: #c0c0c0;
+        border-width: 1px;
+        width: 380px;
+        height: 523px;
+        position: absolute;
+        left: calc(50% - 594px);
+        top: 0px;
+    }
+    
+    ._9-99-month {
+        text-align: left;
+        position: absolute;
+        left: 0px;
+        top: 16px;
+        width: 130.54px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    ._9-99-month-span {
+        color: #f9f9f9;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 28px;
+        line-height: 38px;
+        font-weight: 900;
+    }
+    
+    ._9-99-month-span2 {
+        color: #c0c0c0;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 38px;
+        font-weight: 400;
+    }
+    
+    .details3 {
+        width: 290px;
+        height: 209px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 41px;
+    }
+    
+    .features3 {
+        padding: 0px 14.63px 36px 26px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        left: 0px;
+        top: 145px;
+    }
+    
+    .icon6 {
+        flex-shrink: 0;
+        width: 15px;
+        height: 12.5px;
+        position: absolute;
+        left: 1.5px;
+        top: 3.25px;
+        overflow: visible;
+    }
+    
+    .duo-basic-with-ads {
+        color: #f9f9f9;
+        text-align: left;
+        position: absolute;
+        left: 0px;
+        top: 67px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .duo-basic-with-ads-span {
+        color: #f9f9f9;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 27px;
+        line-height: 38px;
+        font-weight: 900;
+    }
+    
+    .duo-basic-with-ads-span2 {
+        color: #f9f9f9;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+    
+    .logos3 {
+        width: 173px;
+        height: 40px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        object-fit: cover;
+    }
+    
+    .toggle {
+        background: #2b2d37;
+        border-radius: 21px;
+        border-style: solid;
+        border-color: #2b2d37;
+        border-width: 5px;
+        padding: 5px 20.14px 5px 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 146.8px;
+        overflow: hidden;
+    }
+    
+    .disney-bundle {
+        background: #0063e5;
+        border-radius: 19px;
+        padding: 4px 16.62px 4px 16px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-shrink: 0;
+        position: relative;
+    }
+    
+    .disney-bundle2 {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: 400;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .disney {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: 400;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .switch-or-cancel-anytime {
+        color: #c0c0c0;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 93.8px;
+        width: 244.39px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .choose-your-plan {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 43px;
+        line-height: 54px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        margin-top: 0px;
+        translate: -50%;
+        width: 356px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sec_trei {
+        background: black;
+        margin-top: -250px;
+    }
+    
+    .sec_trei a,
+    button,
+    input,
+    select,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        background: none;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .watch-anywhere,
+    .watch-anywhere * {
+        box-sizing: border-box;
+    }
+    
+    .watch-anywhere {
+        height: 673.09px;
+        position: relative;
+    }
+    
+    .content {
+        padding: 0px 28.8px 20px 28.8px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        left: 720px;
+        top: 50%;
+        translate: 0 -50%;
+    }
+    
+    .watch-the-way-you-want {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 38px;
+        line-height: 50px;
+        font-weight: 900;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .benefits-list {
+        padding: 0px 24.88px 0px 40px;
+        flex-shrink: 0;
+        width: 548px;
+        height: 335px;
+        position: relative;
+    }
+    
+    .sub_require {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 526px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .download-any-movie-or-series-and-watch-it-on-the-go {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 0px;
+        top: 125px;
+        width: 548px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .keep-your-family-safe-with-easy-parental-controls {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 0px;
+        top: 175px;
+        width: 505px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .an-ever-growing-range-of-titles-in-stunning-4-k-uhd-and-dolby-atmos-sound-on-compatible-devices {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 0px;
+        top: 225px;
+        width: 544px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .stream-on-up-to-four-devices-at-the-same-time {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 0px;
+        top: 305px;
+        width: 482px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .image {
+        height: 511.84px;
+        position: absolute;
+        right: 720px;
+        left: 80.625px;
+        top: 80.62px;
+        overflow: hidden;
+        object-fit: cover;
+    }
+    
+    .sec_trei menu,
+    ol,
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .sec_trei button {
+        color: white;
+        font-size: 20px;
+    }
+    
+    .sec_trei button:hover {
+        background-color: #6e96c5;
+    }
+    
+    .sec_patru {
+        background: black;
+        height: 100vh;
+        color: white;
+        margin-top: -150px;
+    }
+    
+    .sec_cinci {
+        background: black;
+        height: 100vh;
+        color: white;
+        margin-top: -200px;
+    }
+    
+    .bundle-apel,
+    .bundle-apel * {
+        box-sizing: border-box;
+    }
+    
+    .bundle-apel {
+        height: 599.33px;
+        position: relative;
+    }
+    
+    .image {
+        height: 438.08px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 80.62px;
+        overflow: hidden;
+        object-fit: cover;
+    }
+    
+    .apel {
+        width: 591px;
+        position: absolute;
+        left: 748.5px;
+        bottom: 209.44px;
+        top: 184.65625px;
+    }
+    
+    .terms-apply {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Medium", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 500;
+        text-decoration: underline;
+        position: absolute;
+        left: 0.3px;
+        top: 189px;
+        width: 73.4px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .button_cinci {
+        background: #0063e5;
+        border-radius: 4px;
+        position: relative;
+        top: calc(50% - 10.62px);
+        padding: 25px 160px;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        align-items: right;
+    }
+    
+    .button_cinci:hover {
+        background: #0053ba;
+    }
+    
+    .get-all-three {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Medium", sans-serif;
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+        position: absolute;
+        left: 50%;
+        translate: -50% -50%;
+        top: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .get-your-favorite-stories-originals-and-live-sports-with-disney-hulu-and-espn {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 24px;
+        line-height: 34px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 0.3px;
+        top: calc(50% - 102.62px);
+        width: 541.97px;
+        height: 67px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .sec_cinci a,
+    button,
+    input,
+    select,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        background: none;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .sec_cinci ol,
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .available-devices,
+    .available-devices * {
+        box-sizing: border-box;
+    }
+    
+    .available-devices {
+        height: 788.09px;
+        position: relative;
+    }
+    
+    .devices {
+        width: 1278.75px;
+        height: 532.84px;
+        position: absolute;
+        left: 80.62px;
+        top: 154.62px;
+    }
+    
+    .game-consoles {
+        width: 301.69px;
+        height: 532.84px;
+        position: absolute;
+        left: calc(50% - -337.69px);
+        top: 0px;
+    }
+    
+    .ps-4-ps-5-xbox-one-xbox-series-x-xbox-series-s {
+        color: #c0c0c0;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 218.84px;
+    }
+    
+    .game-consoles2 {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 27px;
+        line-height: 38px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 162.84px;
+        width: 203.29px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .device-image {
+        height: 150.84px;
+        position: absolute;
+        right: 0px;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        object-fit: cover;
+    }
+    
+    .mobile-tablet {
+        width: 301.69px;
+        height: 532.84px;
+        position: absolute;
+        left: calc(50% - -12px);
+        top: 0px;
+    }
+    
+    .amazon-fire-tablets-android-phones-tablets-i-phone-and-i-pad {
+        color: #c0c0c0;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 218.84px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mobile-tablet2 {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 27px;
+        line-height: 38px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 162.84px;
+        width: 205.48px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .computer {
+        width: 301.69px;
+        height: 532.84px;
+        position: absolute;
+        left: calc(50% - 313.69px);
+        top: 0px;
+    }
+    
+    .chrome-os-mac-os-windows-pc {
+        color: #c0c0c0;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 218.84px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .computer2 {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 27px;
+        line-height: 38px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 162.84px;
+        width: 131.17px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .tv {
+        width: 301.69px;
+        height: 532.84px;
+        position: absolute;
+        left: calc(50% - 639.38px);
+        top: 0px;
+    }
+    
+    .amazon-fire-tv-android-tv-devices-apple-tv-chromecast-lg-tv-roku-samsung-xfinity-x-1-flex-hisense-panasonic {
+        color: #c0c0c0;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 218.84px;
+    }
+    
+    .tv2 {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 26px;
+        line-height: 38px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 162.84px;
+        width: 34.4px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .available-on-your-favorite-devices {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 38px;
+        line-height: 50px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 77.62px;
+        width: 625.2px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sec_sase {
+        background: black;
+        height: 100vh;
+        color: white;
+        margin-top: -250px;
+    }
+    
+    .sec_sapte {
+        background: black;
+        height: 100vh;
+        color: white;
+        margin-top: -200px;
+    }
+    
+    .fa-qs,
+    .fa-qs * {
+        box-sizing: border-box;
+    }
+    
+    .fa-qs {
+        height: 783.25px;
+        position: relative;
+    }
+    
+    .question {
+        background: #13151d;
+        height: 78px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 624.62px;
+    }
+    
+    .div {
+        color: #f9f9f9;
+        text-align: right;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 40px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 23.88px;
+        left: 1227.875px;
+        top: 22.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    .what-is-the-disney-bundle {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 1009.88px;
+        left: 23.875px;
+        top: 23.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .question2 {
+        background: #13151d;
+        height: 78px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 530.62px;
+    }
+    
+    .what-s-included-on-the-disney-planuri-with-and-without-ads {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 715.88px;
+        left: 23.875px;
+        top: 23.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .question3 {
+        background: #13151d;
+        height: 78px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 436.62px;
+    }
+    
+    .where-can-i-watch-disney {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 1001.88px;
+        left: 23.875px;
+        top: 23.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .question4 {
+        background: #13151d;
+        height: 78px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 342.62px;
+    }
+    
+    .what-can-i-watch-on-disney {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 984.88px;
+        left: 23.875px;
+        top: 23.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .question5 {
+        background: #13151d;
+        height: 78px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 248.62px;
+    }
+    
+    .how-much-does-disney-cost {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 978.88px;
+        left: 23.875px;
+        top: 23.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .question6 {
+        background: #13151d;
+        height: 78px;
+        position: absolute;
+        right: 80.62px;
+        left: 80.625px;
+        top: 154.62px;
+    }
+    
+    .what-is-disney {
+        color: #f9f9f9;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        position: absolute;
+        right: 1099.88px;
+        left: 23.875px;
+        top: 23.84px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .frequently-asked-questions {
+        color: #f9f9f9;
+        text-align: center;
+        font-family: "Avenir-Black", sans-serif;
+        font-size: 38px;
+        line-height: 50px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 77.62px;
+        width: 520.33px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer,
+    .footer * {
+        box-sizing: border-box;
+    }
+    
+    .footer {
+        height: 282.53px;
+        position: relative;
+    }
+    
+    .content-and-platform-availability-may-vary-by-region-disney-all-rights-reserved {
+        color: #c0c0c0;
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 173.53px;
+        width: 298.81px;
+        height: 60px;
+    }
+    
+    .links {
+        width: 1008px;
+        height: 76px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 79.53px;
+    }
+    
+    .disney-bundle {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 852.86px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .disney-partner-program {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 687.75px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .about-us {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 611.14px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .gift-disney {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 517.16px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .help {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 466.22px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .supported-devices {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 334.02px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .interest-based-ads {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 203.67px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .closed-captioning {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 73.31px;
+        top: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .children-s-online-privacy-policy {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 804.92px;
+        top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .do-not-sell-my-personal-information {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 576.36px;
+        top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .your-california-privacy-rights {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 388.44px;
+        top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .privacy-policy {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 289.44px;
+        top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .subscriber-agreement {
+        color: #c0c0c0;
+        text-align: left;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: absolute;
+        left: 137.73px;
+        top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .language {
+        padding: 0px 28px 41px 29px;
+        width: 92px;
+        height: 22.31px;
+        position: absolute;
+        left: 24.5px;
+        top: 7.69px;
+    }
+    
+    .icon {
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        right: 0.77px;
+        top: 0px;
+        overflow: visible;
+    }
+    
+    .english {
+        color: rgba(249, 249, 249, 0.6);
+        text-align: center;
+        font-family: "Avenir-Book", sans-serif;
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: 400;
+        position: absolute;
+        left: 26.23px;
+        top: 0.31px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .icon2 {
+        width: 18px;
+        height: 18.34px;
+        position: absolute;
+        left: 0px;
+        top: 2px;
+        overflow: visible;
+    }
+    
+    .logo {
+        width: 79.98px;
+        height: 43.53px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: calc(50% - 115.27px);
+        overflow: visible;
+    }
+    
+    .sec_opt {
+        background: rgb(8, 8, 8);
+        height: 30vh;
+        color: white;
+        margin-top: 0px;
+        position: relative;
+        padding-top: 0px;
+        padding-bottom: 20px;
+    }
+</style>
+
+<body>
+    <section class="lio">
+        <button id="log_in">LOG IN</button>
+        <div class="img_butoane">
+            <div class="partea_stanga">
+                <div class="logouri">
+                    <img src="image1.png" alt="" />
+                </div>
+                <button>GET THEM BOTH</button>
+            </div>
+
+            <div class="partea_dreapta">
+                <div class="logouri">
+                    <img src="image0.png" alt="" />
+                </div>
+                <button>GET ALL THREE</button>
+            </div>
+        </div>
+        <div class="text_sectiune">
+            <p>All of these and more now streaming.</p>
+            <p>
+                The Disney Bundle Duo Basic includes Disney+ (With Ads) and Hulu (With Ads). Terms Apply.
+            </p>
+            <img src="brand-logos0.png" alt="" />
+            <p>View All Plan Options</p>
+        </div>
+    </section>
+
+    <section class="sec_doi">
+        <div class="difuz">
+            <div class="meniuri">
+                <div class="trending2">TRENDING</div>
+                <div class="new-on-disney">NEW ON DISNEY+</div>
+                <div class="coming-soon">COMING SOON</div>
+            </div>
+            <div class="desene_">
+                <img src="black-panther-wakanda-forever0.png" alt="" />
+                <img src="andor0.png" alt="" />
+                <img src="turning-red0.png" alt="" />
+                <img src="fire-of-love0.png" alt="" />
+                <img src="encanto0.png" alt="" />
+                <img src="zootopia0.png" alt="" />
+            </div>
+        </div>
+    </section>
+
+    <section class="sec_trei">
+        <div class="planuri">
+            <div class="effective-at-the-end-of-the-billing-period-terms-apply">
+                <span>
+            <span
+              class="effective-at-the-end-of-the-billing-period-terms-apply-span"
+            >
+              *Effective at the end of the billing period.
+              <br />
+            </span>
+                <span class="effective-at-the-end-of-the-billing-period-terms-apply-span2">
+              Terms apply
+            </span>
+                <span class="effective-at-the-end-of-the-billing-period-terms-apply-span3">
+              .
+            </span>
+                </span>
+            </div>
+            <div class="planuri_box">
+                <div class="trio-premium">
+                    <div class="button">
+                        <div class="button2">
+                            <div class="select"><button>SELECT</button></div>
+                        </div>
+                        <div class="_19-99-month">
+                            <span>
+                  <span class="_19-99-month-span">$19.99</span>
+                            <span class="_19-99-month-span2">/month</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="features">
+                            <div class="feature">
+                                <img class="icon" src="icon0.svg" alt="" />
+                                <div class="downloads-to-watch-on-the-go">
+                                    Downloads to watch on-the-go
+                                </div>
+                            </div>
+                            <div class="feature2">
+                                <img class="icon2" src="icon1.svg" alt="" />
+                                <div class="live-sports-and-originals-on-espn-with-ads">
+                                    Live sports and Originals on ESPN+ (With Ads)
+                                </div>
+                            </div>
+                            <div class="feature3">
+                                <img class="icon3" src="icon2.svg" alt="" />
+                                <div class="thousands-of-shows-movies-and-originals-on-disney-and-hulu">
+                                    Thousands of shows, movies, and Originals on Disney+ and Hulu
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trio-premium-no-ads-on-disney-hulu">
+                            <span>
+                  <span class="trio-premium-no-ads-on-disney-hulu-span">
+                    Trio Premium
+                    <br />
+                  </span>
+                            <span class="trio-premium-no-ads-on-disney-hulu-span2">
+                    No Ads on Disney+ &amp; Hulu
+                  </span>
+                            </span>
+                        </div>
+                        <img class="logos" src="logos0.svg" alt="" />
+                    </div>
+                </div>
+                <div class="trio-basic">
+                    <div class="button">
+                        <div class="button2">
+                            <div class="select"><button>SELECT</button></div>
+                        </div>
+                        <div class="_12-99-month">
+                            <span>
+                  <span class="_12-99-month-span">$12.99</span>
+                            <span class="_12-99-month-span2">/month</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="details2">
+                        <div class="features2">
+                            <div class="feature4">
+                                <div class="thousands-of-shows-movies-and-originals-on-disney-and-hulu">
+                                    Thousands of shows, movies, and Originals on Disney+ and Hulu
+                                </div>
+                                <img class="icon4" src="icon3.svg" alt="" />
+                            </div>
+                            <div class="feature5">
+                                <div class="live-sports-and-originals-on-espn">
+                                    Live sports and Originals on ESPN+
+                                </div>
+                                <img class="icon5" src="icon4.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="trio-basic-with-ads">
+                            <span>
+                  <span class="trio-basic-with-ads-span">
+                    Trio Basic
+                    <br />
+                  </span>
+                            <span class="trio-basic-with-ads-span2">With Ads</span>
+                            </span>
+                        </div>
+                        <img class="logos2" src="logos1.svg" alt="" />
+                    </div>
+                </div>
+                <div class="duo-basic">
+                    <div class="button">
+                        <div class="button2">
+                            <div class="select"><button>SELECT</button></div>
+                        </div>
+                        <div class="_9-99-month">
+                            <span>
+                  <span class="_9-99-month-span">$9.99</span>
+                            <span class="_9-99-month-span2">/month</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="details3">
+                        <div class="features3">
+                            <div class="thousands-of-shows-movies-and-originals-on-disney-and-hulu">
+                                Thousands of shows, movies, and Originals on Disney+ and Hulu
+                            </div>
+                            <img class="icon6" src="icon5.svg" alt="" />
+                        </div>
+                        <div class="duo-basic-with-ads">
+                            <span>
+                  <span class="duo-basic-with-ads-span">
+                    Duo Basic
+                    <br />
+                  </span>
+                            <span class="duo-basic-with-ads-span2">With Ads</span>
+                            </span>
+                        </div>
+                        <img class="logos3" src="logos2.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="toggle">
+                <div class="disney-bundle">
+                    <div class="disney-bundle2">Disney Bundle</div>
+                </div>
+                <div class="disney">Disney+</div>
+            </div>
+            <div class="switch-or-cancel-anytime">Switch or cancel* anytime.</div>
+            <div class="choose-your-plan">Choose Your Plan</div>
+        </div>
+    </section>
+
+    <section class="sec_patru">
+        <div class="watch-anywhere">
+            <div class="content">
+                <div class="watch-the-way-you-want">Watch the way you want</div>
+                <div class="benefits-list">
+                    <div class="sub_require">
+                        <ul class="virtual_mov">
+                            <li>
+                                Host virtual movie nights with GroupWatch. Pause, rewind, and react with up to six friends. To invite or be invited to join GroupWatch, subscription is required.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="download-any-movie-or-series-and-watch-it-on-the-go">
+                        <ul class="download-any-movie-or-series-and-watch-it-on-the-go-span">
+                            <li>Download any movie or series and watch it on the go.</li>
+                        </ul>
+                    </div>
+                    <div class="keep-your-family-safe-with-easy-parental-controls">
+                        <ul class="keep-your-family-safe-with-easy-parental-controls-span">
+                            <li>Keep your family safe with easy parental controls.</li>
+                        </ul>
+                    </div>
+                    <div class="an-ever-growing-range-of-titles-in-stunning-4-k-uhd-and-dolby-atmos-sound-on-compatible-devices">
+                        <ul class="an-ever-growing-range-of-titles-in-stunning-4-k-uhd-and-dolby-atmos-sound-on-compatible-devices-span">
+                            <li>
+                                An ever-growing range of titles in stunning 4K UHD and Dolby Atmos sound on compatible devices.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="stream-on-up-to-four-devices-at-the-same-time">
+                        <ul class="stream-on-up-to-four-devices-at-the-same-time-span">
+                            <li>Stream on up to four devices at the same time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <img class="image" src="ecran.png" alt="" />
+        </div>
+    </section>
+
+    <section class="sec_cinci">
+        <div class="bundle-apel">
+            <img class="image" src="treb_1.png" alt="" />
+            <div class="apel">
+                <div class="terms-apply">Terms Apply.</div>
+
+                <button class="button_cinci">GET ALL THREE</button>
+
+                <div class="get-your-favorite-stories-originals-and-live-sports-with-disney-hulu-and-espn">
+                    Get your favorite stories, originals and live sports with Disney+, Hulu, and ESPN+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec_sase">
+        <div class="available-devices">
+            <div class="devices">
+                <div class="game-consoles">
+                    <div class="ps-4-ps-5-xbox-one-xbox-series-x-xbox-series-s">
+                        PS4
+                        <br /> PS5 <br /> Xbox One <br /> Xbox Series X <br /> Xbox Series S
+                    </div>
+                    <div class="game-consoles2">Game Consoles</div>
+                    <img class="device-image" src="device-image0.png" alt="" />
+                </div>
+                <div class="mobile-tablet">
+                    <div class="amazon-fire-tablets-android-phones-tablets-i-phone-and-i-pad">
+                        Amazon Fire Tablets
+                        <br /> Android Phones &amp; Tablets <br /> iPhone and iPad
+                    </div>
+                    <div class="mobile-tablet2">Mobile &amp; Tablet</div>
+                    <img class="device-image" src="device-image1.png" alt="" />
+                </div>
+                <div class="computer">
+                    <div class="chrome-os-mac-os-windows-pc">
+                        Chrome OS
+                        <br /> MacOS <br /> Windows PC
+                    </div>
+                    <div class="computer2">Computer</div>
+                    <img class="device-image" src="device-image2.png" alt="" />
+                </div>
+                <div class="tv">
+                    <div class="amazon-fire-tv-android-tv-devices-apple-tv-chromecast-lg-tv-roku-samsung-xfinity-x-1-flex-hisense-panasonic">
+                        Amazon Fire TV
+                        <br /> Android TV devices <br /> AppleTV <br /> Chromecast <br /> LG TV <br /> Roku <br /> Samsung <br /> Xfinity X1 &amp; Flex <br /> Hisense <br /> Panasonic
+                    </div>
+                    <div class="tv2">TV</div>
+                    <img class="device-image" src="device-image3.png" alt="" />
+                </div>
+            </div>
+            <div class="available-on-your-favorite-devices">
+                Available on your favorite devices
+                <br />
+            </div>
+        </div>
+    </section>
+
+    <section class="sec_sapte">
+        <div class="fa-qs">
+            <div class="question">
+                <div class="div">+</div>
+                <div class="what-is-the-disney-bundle">
+                    What is the Disney Bundle?
+                </div>
+            </div>
+            <div class="question2">
+                <div class="div">+</div>
+                <div class="what-s-included-on-the-disney-planuri-with-and-without-ads">
+                    What&#039;s included on the Disney+ planuri with and without ads?
+                </div>
+            </div>
+            <div class="question3">
+                <div class="div">+</div>
+                <div class="where-can-i-watch-disney">Where can I watch Disney+?</div>
+            </div>
+            <div class="question4">
+                <div class="div">+</div>
+                <div class="what-can-i-watch-on-disney">
+                    What can I watch on Disney+?
+                </div>
+            </div>
+            <div class="question5">
+                <div class="div">+</div>
+                <div class="how-much-does-disney-cost">
+                    How much does Disney+ cost?
+                </div>
+            </div>
+            <div class="question6">
+                <div class="div">+</div>
+                <div class="what-is-disney">What is Disney+?</div>
+            </div>
+            <div class="frequently-asked-questions">Frequently Asked Questions</div>
+        </div>
+    </section>
+
+    <section class="sec_opt">
+        <div class="content-and-platform-availability-may-vary-by-region-disney-all-rights-reserved">
+            Content and platform availability may vary by region.
+            <br />
+            <br /> © Disney. All Rights Reserved.
+            <br />
+        </div>
+        <div class="links">
+            <div class="disney-bundle">Disney Bundle</div>
+            <div class="disney-partner-program">Disney+ Partner Program</div>
+            <div class="about-us">About Us</div>
+            <div class="gift-disney">Gift Disney+</div>
+            <div class="help">Help</div>
+            <div class="supported-devices">Supported Devices</div>
+            <div class="interest-based-ads">Interest-Based Ads</div>
+            <div class="closed-captioning">Closed Captioning</div>
+            <div class="children-s-online-privacy-policy">
+                Children&#039;s Online Privacy Policy
+            </div>
+            <div class="do-not-sell-my-personal-information">
+                Do Not Sell My Personal Information
+            </div>
+            <div class="your-california-privacy-rights">
+                Your California Privacy Rights
+            </div>
+            <div class="privacy-policy">Privacy Policy</div>
+            <div class="subscriber-agreement">Subscriber Agreement</div>
+            <div class="language">
+                <img class="icon" src="icon0.svg" alt="" />
+                <div class="english">English</div>
+                <img class="icon2" src="icon11.svg" alt="" />
+            </div>
+        </div>
+        <img class="logo" src="logo0.svg" alt="" />
+        </div>
+    </section>
+</body>
+
+</html>
